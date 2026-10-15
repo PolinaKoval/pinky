@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Join my pinky promise</title>
+<meta name="description" content="Put it down, together. Agree how much Instagram is fine; go over it and the other one knows.">
+<!-- Link previews. The promise code is after "#" in the link, so preview fetchers never see it. -->
+<meta property="og:title" content="Join my pinky promise">
+<meta property="og:description" content="Put it down, together. Agree how much Instagram is fine; go over it and the other one knows.">
+<meta property="og:image" content="https://polinakoval.github.io/pinky/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#D7FF3B">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../pinky.css">
+</head>
+<body>
+<header class="band lime">
+  <div class="wrap brand">
+    <svg class="rings" viewBox="0 0 34 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><circle cx="23" cy="11" r="8"/></svg>
+    <span class="word">pinky.</span>
+  </div>
+  <div class="wrap">
+    <p class="kicker">You're invited</p>
+    <h1>Join my pinky promise.</h1>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="has-code" hidden>
+    <p class="lead">Agree how much Instagram is fine. Go over it, and the other one knows.</p>
+
+    <div class="code-box">
+      <span class="label">Promise code</span>
+      <span id="code" class="code"></span>
+    </div>
+
+    <a id="open" class="pill" href="#">Open in Pinky</a>
+
+    <h2>No Pinky yet?</h2>
+    <ol class="steps">
+      <li>
+        <span class="n">1</span>
+        <div><b>Copy the invite</b>, so Pinky can find it after you install.
+          <button id="copy" class="box" type="button">Copy the invite</button>
+          <span id="copied" class="note" hidden>Copied.</span>
+        </div>
+      </li>
+      <li>
+        <span class="n">2</span>
+        <div><b>Get Pinky.</b>
+          <div class="stores">
+            <a id="play" class="box" href="https://play.google.com/store/apps/details?id=com.instablock.app">Google Play</a>
+            <span id="ios" class="box off" aria-disabled="true">iPhone: coming soon</span>
+          </div>
+        </div>
+      </li>
+      <li>
+        <span class="n">3</span>
+        <div>Open Pinky, tap <b>I have a code</b>, then <b>Paste invite</b>.</div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="no-code" hidden>
+    <p class="lead">This link is missing its promise code. Ask for the invite again, or type the code in Pinky under <b>I have a code</b>.</p>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  The code stays in this page: it is never sent to us or to anyone else.
+  <a href="https://sites.google.com/view/pinkyprivacy/home">Privacy policy</a>
+</footer>
+
+<script>
+(function () {
+  // The code is the promise's key: it lives only in the fragment and in this page.
+  var ALPHABET = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  var raw = decodeURIComponent(location.hash.slice(1)).toUpperCase().replace(/[^A-Z0-9]/g, "");
+  var ok = raw.length === 16 && raw.split("").every(function (c) { return ALPHABET.indexOf(c) >= 0; });
+  if (!ok) { document.getElementById("no-code").hidden = false; return; }
+  var code = raw.match(/.{4}/g).join("-");
+  document.getElementById("has-code").hidden = false;
+  document.getElementById("code").textContent = code;
+  document.getElementById("open").href = "pinky://join/" + code;
+
+  var invite = "Join my pinky promise: " + location.origin + location.pathname + "#" + code;
+  var copied = document.getElementById("copied");
+  document.getElementById("copy").addEventListener("click", function () {
+    function done() { copied.hidden = false; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(invite).then(done, fallback);
+    } else { fallback(); }
+    function fallback() {
+      var t = document.createElement("textarea");
+      t.value = invite; t.setAttribute("readonly", ""); t.style.position = "fixed"; t.style.opacity = "0";
+      document.body.appendChild(t); t.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(t);
+    }
+  });
+
+  // The store for this phone first.
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    var stores = document.querySelector(".stores");
+    stores.insertBefore(document.getElementById("ios"), stores.firstChild);
+  }
+})();
+</script>
+</body>
+</html>
