@@ -39,7 +39,7 @@
       <span id="code" class="code"></span>
     </div>
 
-    <a id="open" class="pill" href="#">Open in Pinky</a>
+    <a id="open" class="pill" href="#" hidden>Open in Pinky</a>
 
     <h2>No Pinky yet?</h2>
     <ol class="steps">
@@ -86,7 +86,15 @@
   var code = raw.match(/.{4}/g).join("-");
   document.getElementById("has-code").hidden = false;
   document.getElementById("code").textContent = code;
-  document.getElementById("open").href = "pinky://join/" + code;
+  // "Open in Pinky" only where the code can't land in another app. On Android an intent URL names
+  // the package, so only Pinky receives it (and without Pinky, Android opens its Play page). A bare
+  // pinky:// link could be claimed by any app that registers the scheme, so iPhones (until
+  // Universal Links are verified) and computers get "Copy the invite" + "Paste invite" instead.
+  var open = document.getElementById("open");
+  if (/Android/i.test(navigator.userAgent)) {
+    open.href = "intent://join/" + code + "#Intent;scheme=pinky;package=com.instablock.app;end";
+    open.hidden = false;
+  }
 
   var invite = "Join my pinky promise: " + location.origin + location.pathname + "#" + code;
   var copied = document.getElementById("copied");
