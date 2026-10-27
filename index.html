@@ -12,7 +12,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#D7FF3B">
 <link rel="icon" href="icon.png">
-<link rel="stylesheet" href="pinky.css?v=2">
+<link rel="stylesheet" href="pinky.css?v=3">
 </head>
 <body>
 <header class="band lime">
@@ -24,11 +24,40 @@
 </header>
 <main class="wrap">
   <p class="lead">Two of you agree how much Instagram is fine. Go over it, and the other one knows. Only which app is open is shared, never what you do in it.</p>
-  <div class="stores">
-    <a class="box" href="https://play.google.com/store/apps/details?id=com.instablock.app">Google Play</a>
-    <span class="box off" aria-disabled="true">iPhone: coming soon</span>
-  </div>
+  <p>Pinky is in testing. It's free, and Android and iPhone work together in one promise.</p>
+
+  <section id="android">
+    <h2>Android</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><div><b>Join the testers group</b>, signed in with the Google account your Play Store uses.
+        <a class="box" href="https://groups.google.com/g/pinky-testers">Join the group</a></div></li>
+      <li><span class="n">2</span><div><b>Become a tester</b>, then tap <b>Download it on Google Play</b>.
+        <a class="box" href="https://play.google.com/apps/testing/com.instablock.app">Become a tester</a></div></li>
+      <li><span class="n">3</span><div>Open Pinky and switch on what it asks for: it shows each step.</div></li>
+    </ol>
+    <p class="note">"App not available"? Wait 15 minutes after joining the group. "Item not found"? Switch the Play Store to the account you joined with.</p>
+  </section>
+
+  <section id="iphone">
+    <h2>iPhone</h2>
+    <ol class="steps">
+      <li><span class="n">1</span><div>Install <b>TestFlight</b> from the App Store: Apple's app for trying apps before they're out.</div></li>
+      <li><span class="n">2</span><div>Open the invite on your iPhone and tap <b>Accept</b>, then <b>Install</b>.
+        <a class="box" href="https://testflight.apple.com/join/GpgY6eTr">Get it on TestFlight</a></div></li>
+      <li><span class="n">3</span><div>Open Pinky, allow <b>Screen Time</b>, pick Instagram and allow notifications. iOS 16 or newer.</div></li>
+    </ol>
+  </section>
+
+  <h2>Then</h2>
+  <p>One of you taps <b>Make a promise</b> and sends the invite; the other taps the link and joins. Something confusing or broken? Tell us: a screenshot helps.</p>
 </main>
+<script>
+  // The steps for this phone first.
+  if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+    var a = document.getElementById("android");
+    a.parentNode.insertBefore(document.getElementById("iphone"), a);
+  }
+</script>
 <footer class="wrap foot"><a href="https://sites.google.com/view/pinkyprivacy/home">Privacy policy</a></footer>
 </body>
 </html>
