@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinky privacy policy</title>
+<meta name="description" content="What Pinky collects (almost nothing), what it shares with your promise, and what it never does.">
+<meta property="og:title" content="Pinky privacy policy">
+<meta property="og:description" content="What Pinky collects (almost nothing), what it shares with your promise, and what it never does.">
+<meta property="og:image" content="https://pinkypromise.social/og.png">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#D7FF3B">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../pinky.css?v=5">
+</head>
+<body>
+<header class="band lime">
+  <div class="wrap brand"><a class="home" href="../">
+    <svg class="rings" viewBox="0 0 34 22" aria-hidden="true"><circle cx="11" cy="11" r="8"/><circle cx="23" cy="11" r="8"/></svg>
+    <span class="word">pinky.</span></a>
+  </div>
+  <div class="wrap">
+    <p class="kicker">Privacy</p>
+    <h1>What Pinky sees, and what it never does.</h1>
+  </div>
+</header>
+<main class="wrap doc">
+
+<p class="meta">Last updated: 31 October 2026</p>
+<p class="lead">Pinky ("pinky promise: put it down") is an app for Android and iPhone that tells the people in your promise when you open an app you asked it to watch, and vice versa. It is made by an individual developer, not a company.</p>
+
+<h2>What Pinky collects</h2>
+<p><b>We can't read anything you share.</b> Pinky has no accounts and no analytics. Its only server is the relay that passes your promise's encrypted messages between phones (below).</p>
+<p>What the app handles, and where it goes:</p>
+<ul>
+<li><b>App usage on your phone.</b> With the <i>usage access</i> permission, Pinky checks every few seconds whether one of the apps you chose (Instagram by default) is on screen. It keeps only session start/end times and minutes for the apps you chose, for 30 days, on your phone.</li>
+<li><b>Screen Time on an iPhone.</b> On an iPhone, Pinky uses Apple's Screen Time with your permission. You pick the apps in Apple's own picker; Pinky only learns how many minutes you spent on them today (in steps), never which of them, and Apple shows the stop screen. With "Share my minutes" off, your partners only hear when you break the promise.</li>
+<li><b>Browser address bar (optional).</b> If you turn on the <i>browser watch</i> (an accessibility service), Pinky reads the address bar of supported browsers to see whether a watched website such as instagram.com is open. It reads nothing else on screen and stores no addresses; only "a watched site was opened/closed" is kept, like an app session.</li>
+<li><b>Events shared with your promise.</b> Your minutes on the watched apps today (a total, never which app), the start and end of a session only when it breaks the promise (past the daily allowance or in sleep time), nudges (including any message you type into one), the penalty and goal, your chosen name, your time zone, the names of apps you add to or drop from your watched list, and a few settings (the promise's daily allowance and sleep time, the relay address) are sent to the other phones in your promise through <b>Pinky's relay</b> (run by us on Google Cloud in the United States), the public relay <b>ntfy.sh</b> for promises made before October 2026, or a server you configure. Every message is <b>encrypted on your phone</b> with a key derived from your promise code; the relay sees only an opaque topic name, ciphertext, size, timing and your IP address. It keeps messages for 12 hours and keeps no logs of their contents. Only people who know the promise code can read them.</li>
+<li><b>iPhone push.</b> So an iPhone hears about the others at once, the Pinky app on an iPhone gives Pinky's relay its Apple push token, the promise's topic name and a one-way hash of a random device id. The relay uses them only to ask Apple to deliver the still-encrypted message to that iPhone, which decrypts it itself. A token unused for 60 days, or one Apple reports as no longer valid, is deleted; leaving the promise removes it.</li>
+<li><b>Purchases.</b> Pinky Plus is sold by Google Play on Android and by the App Store on iPhone. Google or Apple handles payment and keeps the purchase record; the app only asks the store whether a subscription is active. We never see your payment details.</li>
+</ul>
+
+<h2>What Pinky does not do</h2>
+<ul>
+<li>No advertising, no tracking, no crash reporting, no analytics SDKs.</li>
+<li>No data leaves your phone except the encrypted events above (and, on an iPhone, its push token), to the relay.</li>
+<li>Nothing is shared with third parties.</li>
+</ul>
+
+<h2>Permissions, and why</h2>
+<table>
+<tr><th>Permission</th><th>Why</th></tr>
+<tr><td>Usage access (Android)</td><td>To notice when a watched app is opened.</td></tr>
+<tr><td>Screen Time (iPhone)</td><td>To count your minutes on the apps you picked and show the stop screen.</td></tr>
+<tr><td>Notifications</td><td>To tell you when someone in your promise gets caught.</td></tr>
+<tr><td>Run in the background / ignore battery optimisation</td><td>So the watching keeps working with the screen off.</td></tr>
+<tr><td>Accessibility service (optional, Android)</td><td>The browser watch: address bar only, supported browsers only.</td></tr>
+<tr><td>Internet</td><td>To exchange encrypted events through the relay and talk to Google Play or the App Store.</td></tr>
+</table>
+
+<h2>Your control</h2>
+<ul>
+<li>Leaving a promise (Home, Edit on the promise card, Break the promise) deletes the group's history on your phone and tells the others.</li>
+<li>Uninstalling removes everything.</li>
+<li>Relay messages expire after 12 hours and are unreadable without your promise code.</li>
+</ul>
+
+<h2>Children</h2>
+<p>Pinky is not directed at children under 13.</p>
+
+<h2>Contact</h2>
+<p>Questions about this policy: <a href="mailto:reunite.studio.app@gmail.com">reunite.studio.app@gmail.com</a>. This page is the policy's home; the earlier copy on Google Sites points here.</p>
+</main>
+<footer class="wrap foot"><nav class="links"><a href="../">Home</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="../support/">Support</a><a href="../press/">Press</a></nav>
+<p>Pinky is made by Reunite Studio. <a href="mailto:reunite.studio.app@gmail.com">reunite.studio.app@gmail.com</a></p></footer>
+</body>
+</html>

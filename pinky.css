@@ -42,3 +42,21 @@ main a:not(.box):not(.pill) { color: var(--ink); font-weight: 700; }
 .store svg { width: 26px; height: 26px; flex: none; fill: currentColor; }
 .store span { display: flex; flex-direction: column; line-height: 1.1; font-family: "Archivo Black", sans-serif; font-size: 17px; }
 .store small { font-family: "Archivo", sans-serif; font-weight: 600; font-size: 12px; }
+
+/* Document pages (privacy, terms, support, press) and the shared footer. */
+.brand .home { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+.meta { margin: 20px 0 0; font-size: 14px; color: var(--muted); font-weight: 700; }
+.doc h3 { margin: 22px 0 6px; font-family: "Archivo Black", sans-serif; font-size: 17px; }
+.doc ul { padding-left: 22px; }
+.doc li { margin: 6px 0; }
+.doc table { border-collapse: collapse; width: 100%; margin: 12px 0; font-size: 15px; }
+.doc th, .doc td { border: 2px solid var(--ink); padding: 8px 10px; text-align: left; vertical-align: top; }
+.doc th { background: var(--lime); font-family: "Archivo Black", sans-serif; font-weight: 400; }
+.doc code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 14px; }
+.kit { display: flex; flex-wrap: wrap; gap: 14px; margin: 14px 0; }
+.kit a { display: flex; flex-direction: column; gap: 6px; border: 3px solid var(--ink); padding: 10px; color: var(--ink); text-decoration: none; font-weight: 700; font-size: 13px; background: var(--bg); }
+.kit img { display: block; max-width: 100%; height: auto; }
+.shots a { width: calc(33.33% - 10px); }
+.shots img { width: 100%; }
+.links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; }
+.foot p { margin: 0; }
