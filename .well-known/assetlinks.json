@@ -1,0 +1,13 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.instablock.app",
+      "sha256_cert_fingerprints": [
+        "8B:71:DF:4A:D7:A3:E9:FC:94:A1:F7:3F:F1:B5:90:83:85:85:53:89:38:FE:5B:2B:D0:27:5E:11:2D:51:21:D9",
+        "49:7E:6A:FB:D3:2F:DE:D3:E4:9F:22:20:76:8D:ED:87:D6:E1:28:9E:69:9B:3C:C6:71:AF:74:BA:78:7D:0A:A5"
+      ]
+    }
+  }
+]

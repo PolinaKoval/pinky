@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "2C832M6T78.com.instablock.pinky",
+        "appIDs": ["2C832M6T78.com.instablock.pinky"],
+        "paths": ["/j", "/j/"],
+        "components": [
+          { "/": "/j", "comment": "Invite: the code is in the fragment, never sent to a server" },
+          { "/": "/j/" }
+        ]
+      }
+    ]
+  }
+}
