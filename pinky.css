@@ -60,3 +60,10 @@ main a:not(.box):not(.pill) { color: var(--ink); font-weight: 700; }
 .shots img { width: 100%; }
 .links { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 10px; }
 .foot p { margin: 0; }
+
+/* Store buttons by stage: <body data-stage="test"> shows our own test boxes (closed test, TestFlight);
+   "live" shows the official badges (web/pinky/STAGE, rewritten by scripts/deploy-web.sh). */
+.badge { display: inline-flex; }
+.badge img { display: block; height: 56px; width: auto; }
+body[data-stage="test"] .live { display: none !important; }
+body[data-stage="live"] .test { display: none !important; }
