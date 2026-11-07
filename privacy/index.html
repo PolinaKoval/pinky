@@ -26,11 +26,11 @@
 </header>
 <main class="wrap doc">
 
-<p class="meta">Last updated: 3 November 2026</p>
+<p class="meta">Last updated: 5 November 2026</p>
 <p class="lead">Pinky ("pinky promise: put it down") is an app for Android and iPhone that tells the people in your promise when you open an app you asked it to watch, and vice versa. It is made by Sunday Labs Ltd, a company registered in England and Wales (company number 17555468) and registered with the Information Commissioner's Office (ICO) as data controller, registration number ZC290825.</p>
 
 <h2>What Pinky collects</h2>
-<p><b>We can't read anything you share.</b> Pinky has no accounts and no analytics. Its only server is the relay that passes your promise's encrypted messages between phones (below).</p>
+<p><b>We can't read anything you share.</b> Pinky has no accounts. Its only server is the relay that passes your promise's encrypted messages between phones (below); the only other thing that leaves your phone is anonymous usage statistics and crash reports (below), which never include what you share.</p>
 <p>What the app handles, and where it goes:</p>
 <ul>
 <li><b>App usage on your phone.</b> With the <i>usage access</i> permission, Pinky checks every few seconds whether one of the apps you chose (Instagram by default) is on screen. It keeps only session start/end times and minutes for the apps you chose, for 30 days, on your phone.</li>
@@ -38,14 +38,15 @@
 <li><b>Browser address bar (optional).</b> If you turn on the <i>browser watch</i> (an accessibility service), Pinky reads the address bar of supported browsers to see whether a watched website such as instagram.com is open. It reads nothing else on screen and stores no addresses; only "a watched site was opened/closed" is kept, like an app session.</li>
 <li><b>Events shared with your promise.</b> Your minutes on the watched apps today (a total, never which app), the start and end of a session only when it breaks the promise (past the daily allowance or in sleep time), nudges (including any message you type into one), the penalty and goal, your chosen name, your time zone, the names of apps you add to or drop from your watched list, and a few settings (the promise's daily allowance and sleep time, the relay address) are sent to the other phones in your promise through <b>Pinky's relay</b> (run by us on Google Cloud in the United States), the public relay <b>ntfy.sh</b> for promises made before October 2026, or a server you configure. Every message is <b>encrypted on your phone</b> with a key derived from your promise code; the relay sees only an opaque topic name, ciphertext, size, timing and your IP address. It keeps messages for 12 hours and keeps no logs of their contents. Only people who know the promise code can read them.</li>
 <li><b>iPhone push.</b> So an iPhone hears about the others at once, the Pinky app on an iPhone gives Pinky's relay its Apple push token, the promise's topic name and a one-way hash of a random device id. The relay uses them only to ask Apple to deliver the still-encrypted message to that iPhone, which decrypts it itself. A token unused for 60 days, or one Apple reports as no longer valid, is deleted; leaving the promise removes it.</li>
+<li><b>Usage statistics and crash reports.</b> The Android app (from version 1.9.24; the iPhone app from version 1.2) uses Google's Firebase Analytics and Crashlytics, so we can see how Pinky is used and fix what breaks. Usage statistics are which screens are opened and which buttons are used (for example "a promise was made", "an invite was shared", "Pinky Plus was opened"), with the phone model, system version, app version, rough country and a random id that Firebase gives this installation. They never include which apps or websites you watch, your minutes, when you were caught, your name, messages, promise code or anything sent to your promise. Crash reports say where the app broke and on which phone and system, with nothing about you in them. Google processes them for us (Firebase's terms make Google our processor); usage statistics are kept for 2 months and crash reports for 90 days. Turn usage statistics off in Settings, "Share usage stats"; crash reports stay on. We never use the advertising ID, never link this to you and never use it for advertising.</li>
 <li><b>Purchases.</b> Pinky Plus is sold by Google Play on Android and by the App Store on iPhone. Google or Apple handles payment and keeps the purchase record; the app only asks the store whether a subscription is active. We never see your payment details.</li>
 </ul>
 
 <h2>What Pinky does not do</h2>
 <ul>
-<li>No advertising, no tracking, no crash reporting, no analytics SDKs.</li>
-<li>No data leaves your phone except the encrypted events above (and, on an iPhone, its push token), to the relay.</li>
-<li>Nothing is shared with third parties.</li>
+<li>No advertising, no advertising ID, no tracking across apps or websites.</li>
+<li>No data leaves your phone except the encrypted events above (and, on an iPhone, its push token) to the relay, and the usage statistics and crash reports above to Google's Firebase.</li>
+<li>Nothing is sold or shared with third parties; Google only processes the statistics and crash reports for us.</li>
 </ul>
 
 <h2>Permissions, and why</h2>
@@ -62,6 +63,7 @@
 <h2>Your control</h2>
 <ul>
 <li>Leaving a promise (Home, Edit on the promise card, Break the promise) deletes the group's history on your phone and tells the others.</li>
+<li>Settings, "Share usage stats", turns usage statistics off.</li>
 <li>Uninstalling removes everything.</li>
 <li>Relay messages expire after 12 hours and are unreadable without your promise code.</li>
 </ul>
