@@ -72,5 +72,6 @@ main a:not(.box):not(.pill) { color: var(--ink); font-weight: 700; }
    "live" shows the official badges (web/pinky/STAGE, rewritten by scripts/deploy-web.sh). */
 .badge { display: inline-flex; }
 .badge img { display: block; height: 56px; width: auto; }
+.steps .stores { margin-top: 10px; }
 body[data-stage="test"] .live { display: none !important; }
 body[data-stage="live"] .test { display: none !important; }
