@@ -75,3 +75,6 @@ main a:not(.box):not(.pill) { color: var(--ink); font-weight: 700; }
 .steps .stores { margin-top: 10px; }
 body[data-stage="test"] .live { display: none !important; }
 body[data-stage="live"] .test { display: none !important; }
+/* "ios": the App Store is live, Play still in closed testing (2026-11-19): Android keeps its test boxes, iPhone gets the badge. */
+body[data-stage="ios"] .test:not(.android), body[data-stage="ios"] .live.android { display: none !important; }
+body:not([data-stage="ios"]) .ios-only { display: none !important; }
